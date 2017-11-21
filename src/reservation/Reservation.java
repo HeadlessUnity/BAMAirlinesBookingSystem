@@ -1,3 +1,4 @@
+package reservation;
 
 public class Reservation {
 	
@@ -25,9 +26,8 @@ public class Reservation {
 	public void createFoodOrder() {
 		
 	}
-	public Reservation(int totalPrice) {
-		super();
-		this.totalPrice = totalPrice;
+	public Reservation() {
+	
 	}
 	
 	

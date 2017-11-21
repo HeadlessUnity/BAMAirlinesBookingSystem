@@ -1,3 +1,4 @@
+package reservation;
 import java.math.BigDecimal;
 
 public class TheBamVault$$ {
