@@ -1,4 +1,4 @@
-package Food;
+package food;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
