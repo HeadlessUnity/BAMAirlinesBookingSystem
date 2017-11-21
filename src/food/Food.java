@@ -1,4 +1,4 @@
-package Food;
+package food;
 import java.math.BigDecimal;
 
 public class Food {
