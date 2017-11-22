@@ -1,35 +1,40 @@
 package reservation;
 
+import java.math.BigDecimal;
+
+import food.Menu;
+
 public class Reservation {
-	
-	private int totalPrice;
-	
-	
-	public void getBookedMenu() {
-		
-	}
-	public void getBookedCustomer() {
-		
+
+	private double totalPrice;
+	private double reservationFoodPrice;
+
+
+
+	public void getBookedPassenger() {
+
 	}
 	public int getAvailableSeats(int seat) {
 		return seat;
 	}
 	public void createPassenger( String f, String l, String p) {
-		
+
 	}
-	public int getTotalPrice() {
+	public  double getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public void createFoodOrder() {
-		
-	}
-	public Reservation() {
+	public void createFoodOrder(ReservationType rT,int foodIndex) {
+		Menu m=new Menu();
+		m.printFoodList(rT);
+		reservationFoodPrice= m.getPriceForFoodItem(rT,foodIndex)+ reservationFoodPrice;
+		}
 	
-	}
 	
-	
+	public Reservation() {}
+
+
 
 }

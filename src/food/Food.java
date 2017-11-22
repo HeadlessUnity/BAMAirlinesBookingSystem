@@ -1,15 +1,15 @@
-package Food;
+package food;
 import java.math.BigDecimal;
 
 public class Food {
 	
 	private String foodName;
-	private BigDecimal foodPrice;
+	private double foodPrice;
 	
 	
-	Food(String foodName, double i) {
+	Food(String foodName, double foodPrice) {
 		this.foodName = foodName;
-		this.foodPrice = new BigDecimal(i);
+		this.foodPrice = foodPrice;
 	}
 
 	@Override
@@ -17,8 +17,12 @@ public class Food {
 		return "Food [foodName=" + foodName + ", foodPrice=" + foodPrice + "]";
 	}
 	
-	public BigDecimal getFoodPrice() {
+	public double getFoodPrice() {
 		return foodPrice;
+	}
+
+	public String getFoodName() {
+		return foodName;
 	}
 	
 	

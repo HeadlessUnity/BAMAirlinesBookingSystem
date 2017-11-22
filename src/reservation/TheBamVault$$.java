@@ -2,19 +2,19 @@ package reservation;
 import java.math.BigDecimal;
 
 public class TheBamVault$$ {
-	private BigDecimal totalIncome;
-	private BigDecimal totalProfit;
+	private double totalIncome;
+	private double totalProfit;
 	
-	public BigDecimal getTotalIncome() {
+	public double getTotalIncome() {
 		return totalIncome;
 	}
-	public BigDecimal getTotalProfit() {
+	public double getTotalProfit() {
 		return totalProfit;
 	}
-	public void setTotalIncome(BigDecimal totalIncome) {
+	public void setTotalIncome(double totalIncome) {
 		this.totalIncome = totalIncome;
 	}
-	public void setTotalProfit(BigDecimal totalProfit) {
+	public void setTotalProfit(double totalProfit) {
 		this.totalProfit = totalProfit;
 	}		
 }
