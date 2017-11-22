@@ -22,7 +22,8 @@ boolean running = true;
 				}
 				// Asks the user what it want to do
 				System.out.println("Where and when would you like to fly?");
-				Scanner sc = new Scanner(System.in);				
+				Scanner sc = new Scanner(System.in);	
+				//-------------------------------------------------------------------
 				// Enter date and destination
 				String input = sc.nextLine().toLowerCase().trim();
 
@@ -37,12 +38,13 @@ boolean running = true;
 				System.out.println("First or Economy Class?");
 
 				//Reserve seat
+				
+				//-------------------------------------------------------------------
 				//set first or economy status
-
 				System.out.println("What would you like to eat?");
 				
 				
-
+				//TODO: print ticket confirmation eller ah information.
 				switch (input) {
 				
 

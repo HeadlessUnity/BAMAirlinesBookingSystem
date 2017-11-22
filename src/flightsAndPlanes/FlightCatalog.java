@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Map.Entry;
 
 public class FlightCatalog {
-	public static HashMap<Integer, Flight> flightMap;
+	public static HashMap<Integer, Flight> flightMap = new HashMap<Integer, Flight>();
 	
 	
 
@@ -20,14 +20,14 @@ public class FlightCatalog {
 	return entry.getValue();
 	}
 
-	public Flight getflight(int flightNumber) {
+	public static Flight getFlight(int flightNumber) {
 		return flightMap.get(flightNumber);
 	}
 	
-	public void addflight(Flight flight) {
+	public static void addFlight(Flight flight) {
 		flightMap.put(flight.getFlightNumber(), flight);
 	}
-	public void removeflight(int flightNumber) {
+	public static void removeFlight(int flightNumber) {
 		flightMap.remove(flightNumber);
 		
 	}
