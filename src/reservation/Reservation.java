@@ -34,7 +34,6 @@ public class Reservation {
 		
 		Menu m=new Menu();
 		 m.addToFoodOrder(rT, foodIndex, foodOrder);
-//		totalFoodPriceReservation=  totalFoodPriceReservation +m.getPriceForFoodItem(rT,foodIndex);
 		}
 	public void printFoodOrder() {
 		Food food;
