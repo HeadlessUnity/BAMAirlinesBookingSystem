@@ -13,7 +13,7 @@ public class FlightCatalog {
 		return flightMap;
 	}
 
-	public static Flight getFirstAvailableflight() {
+	public static Flight getFirstAvailableFlight() {
 	Optional<Entry<Integer, Flight>> optionalPlane = flightMap.entrySet().stream().filter(
 			(entrySet) -> entrySet.getValue().isFlightAvailable()).findFirst();
 	Entry<Integer, Flight> entry = optionalPlane.get();

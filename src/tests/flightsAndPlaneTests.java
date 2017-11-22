@@ -64,7 +64,6 @@ public class flightsAndPlaneTests {
 		}
 
 		@Test
-		//TODO: FUCKING NO PLANES AVAIBALE BITCH
 		public void createFlightsTest() {
 			LocalDateTime now = LocalDateTime.now();
 			LocalDateTime later = now.plusMonths(5);
@@ -72,6 +71,14 @@ public class flightsAndPlaneTests {
 			Aeroplane first = new Aeroplane("AirBus380");
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
+
+			List<Aeroplane> aeroplaneList  = Arrays.asList(
+					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
+					new Aeroplane("boeing747"));			
+			
+			for (Aeroplane aeroplane : aeroplaneList) {
+				AeroplaneCatalog.addAeroplane(aeroplane);
+			};
 
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
@@ -89,6 +96,15 @@ public class flightsAndPlaneTests {
 			Aeroplane first = new Aeroplane("AirBus380");
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
+
+
+			List<Aeroplane> aeroplaneList  = Arrays.asList(
+					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
+					new Aeroplane("boeing747"));			
+			
+			for (Aeroplane aeroplane : aeroplaneList) {
+				AeroplaneCatalog.addAeroplane(aeroplane);
+			};
 
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
