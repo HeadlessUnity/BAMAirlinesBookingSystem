@@ -51,16 +51,17 @@ public class flightsAndPlaneTests {
 	}
 
 	@Test
+	//TODO: FUCKING NO PLANES AVAIBALE BITCH
 	public void createFlightsTest() {
 		LocalDateTime now = LocalDateTime.now();
 		LocalDateTime later = now.plusMonths(5);
 		
 		Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
-				"5D", "Sweden", now.plusHours(3), "AirBus380");
+				"5D", "Sweden", now.plusHours(3));
 		Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
-				"12D", "United-Kingdom", now.plusDays(3).plusHours(3), "AirBus320");
+				"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
 		Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
-				"1F", "Sweden", later.plusHours(9), "Boeing747");
+				"1F", "Sweden", later.plusHours(9));
 	}
 
 	@Test

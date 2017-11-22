@@ -33,7 +33,7 @@ public class FlightCatalog {
 	}
 	@Override
 	public String toString() {
-		return "Available Planes: " + flightMap;
+		return "Available Flights: " + flightMap;
 	}
 	
 }
