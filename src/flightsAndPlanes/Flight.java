@@ -16,8 +16,8 @@ public class Flight {
 	private Aeroplane aeroplane;
 	private boolean flightAvailableStatus;
 	private HashMap<Integer, Boolean> seats = new HashMap<Integer, Boolean>();
-	private BigDecimal economyClassPrice = new BigDecimal(5000);
-	private BigDecimal firstClassPrice = new BigDecimal(20_000);
+	private double economyClassPrice = 5000.0;
+	private double firstClassPrice = 20_000.0;
 
 	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
@@ -38,7 +38,8 @@ public class Flight {
 
 	
 	}
-	
+	//TODO availible seats
+	//TODO classtype enum shit to make seat good.
 	public Aeroplane getAeroplane() {
 		return aeroplane;
 	}
@@ -65,11 +66,11 @@ public class Flight {
 		return seats;
 	}
 
-	public BigDecimal getEconomyClassPrice() {
+	public double getEconomyClassPrice() {
 		return economyClassPrice;
 	}
 
-	public BigDecimal getFirstClassPrice() {
+	public double getFirstClassPrice() {
 		return firstClassPrice;
 	}
 
