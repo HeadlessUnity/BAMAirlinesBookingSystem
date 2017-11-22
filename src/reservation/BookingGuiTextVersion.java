@@ -52,13 +52,19 @@ public class BookingGuiTextVersion {
 			//Reserve seat
 			//set first or economy status
 
-			System.out.println("What would you like to eat? (No food press: q)");
-			
+			System.out.println("What would you like to eat? (No food press: 0)");
 			Menu m=new Menu();
 			m.printFoodList(rT);
-			sc.nextLine().toLowerCase().trim();
+			int foodIndex;
+			do {
+				foodIndex=sc.nextInt();
+				if (foodIndex!=0) {
+					reservation.createFoodOrder(rT, foodIndex);
+				}
+			} while (foodIndex ==0);
 			
-
+			
+			
 
 
 			switch (input) {

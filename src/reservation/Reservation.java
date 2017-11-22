@@ -1,13 +1,17 @@
 package reservation;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import food.Food;
 import food.Menu;
 
 public class Reservation {
 
 	private double totalPrice;
-	private double reservationFoodPrice;
+	private double totalFoodPriceReservation;
+	List<Food> foodOrder=new ArrayList<Food>();
 
 
 
@@ -27,13 +31,22 @@ public class Reservation {
 		this.totalPrice = totalPrice;
 	}
 	public void createFoodOrder(ReservationType rT,int foodIndex) {
+		
 		Menu m=new Menu();
-		m.printFoodList(rT);
-		reservationFoodPrice= m.getPriceForFoodItem(rT,foodIndex)+ reservationFoodPrice;
+		 m.addToFoodOrder(rT, foodIndex, foodOrder);
+//		totalFoodPriceReservation=  totalFoodPriceReservation +m.getPriceForFoodItem(rT,foodIndex);
 		}
+	public void printFoodOrder() {
+		Food food;
+		for (Iterator iterator = foodOrder.iterator(); iterator.hasNext();) {
+			food = (Food) iterator.next();
+			System.out.println(food);
+		}
+	}
 	
-	
-	public Reservation() {}
+	public Reservation() {
+		this.totalFoodPriceReservation =0;
+	}
 
 
 
