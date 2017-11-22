@@ -6,20 +6,22 @@ import java.util.HashMap;
 
 public class Flight {
 	private static int flightNumber;
+	private int nrOfSeats = 10;
 	private LocalDateTime takeOffDateTime;
 	private String takeOffTerminal;
 	private String takeoffCountry;
 	private String takeOffGate;
 	private String landingCountry;
 	private LocalDateTime landingDateTime;
-	private Aeroplane plane;
+	private Aeroplane aeroplane;
+	private boolean flightAvailableStatus;
 	private HashMap<Integer, Boolean> seats = new HashMap<Integer, Boolean>();
 	private BigDecimal economyClassPrice = new BigDecimal(5000);
 	private BigDecimal firstClassPrice = new BigDecimal(20_000);
 
 	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
-			LocalDateTime landingDateTime, String planeModel) {
+			LocalDateTime landingDateTime) {
 
 		flightNumber++;
 		this.takeOffDateTime = takeOffDateTime;
@@ -29,16 +31,16 @@ public class Flight {
 		this.landingCountry = landingCountry;
 		this.landingDateTime = landingDateTime;
 		//This instantiates the seat field with 10 available seats.
-		for(int i = 1; i <= 10; i++) {
+		for(int i = 1; i <= nrOfSeats; i++) {
 			seats.put(i, false);
 		};
-		
-		this.plane = new Aeroplane(planeModel);
+		this.aeroplane = AeroplaneCatalog.getFirstAvailableAeroplane();
+
 	
 	}
 	
 	public Aeroplane getAeroplane() {
-		return plane;
+		return aeroplane;
 	}
 
 	public LocalDateTime getTakeOffDateTime() {
@@ -88,5 +90,12 @@ public class Flight {
 	public int getFlightNumber() {
 		return flightNumber;
 	}
-
+	
+	public boolean isFlightAvailable() {
+		return flightAvailableStatus;
+	}
+	
+	public void setFlightAvailableStatus(boolean flightAvailableStatus) {
+		this.flightAvailableStatus = flightAvailableStatus;
+	}
 }

@@ -4,13 +4,13 @@ public class Aeroplane {
 	private static int planeNumber;
 	private String airline;
 	private String model;
-	private boolean  airplaneWorkingStatus;
+	private boolean  airplaneAvailableStatus;
 	
 	
 	public Aeroplane(String model) {
 		planeNumber++;
 		this.model = model;
-		this.airplaneWorkingStatus = true;
+		this.airplaneAvailableStatus = true;
 	}
 	
 
@@ -26,17 +26,12 @@ public class Aeroplane {
 		return model;
 	}
 
-	public boolean isAirplaneWorkingStatus() {
-		return airplaneWorkingStatus;
-	}
-
-
-	public boolean isAirplaneWorking() {
-		return airplaneWorkingStatus;
+	public boolean isAirplaneAvailable() {
+		return airplaneAvailableStatus;
 	}
 	
-	public void setAirplaneWorkingStatus(boolean airplaneWorkingStatus) {
-		this.airplaneWorkingStatus = airplaneWorkingStatus;
+	public void setAirplaneAvailableStatus(boolean airplaneAvailableStatus) {
+		this.airplaneAvailableStatus = airplaneAvailableStatus;
 	}
 	
 

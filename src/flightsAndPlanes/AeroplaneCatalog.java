@@ -1,19 +1,39 @@
 package flightsAndPlanes;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Optional;
 
 public class AeroplaneCatalog {
-	HashMap<String, Flight> flightMap;
+	private static HashMap<String, Aeroplane> aeroplaneMap;
+	
+	
 
-	public HashMap getAeroplaneCatalog() {
-		return flightMap;
+	public HashMap<String, Aeroplane> getAeroplaneCatalog() {
+		return aeroplaneMap;
 	}
 
+	public static Aeroplane getFirstAvailableAeroplane() {
+	Optional<Entry<String, Aeroplane>> optionalPlane = aeroplaneMap.entrySet().stream().filter(
+			(entrySet) -> entrySet.getValue().isAirplaneAvailable()).findFirst();
+	Entry<String, Aeroplane> entry = optionalPlane.get();
+	return entry.getValue();
+	}
+
+	public Aeroplane getAeroplane(String aeroplaneModel) {
+		return aeroplaneMap.get(aeroplaneModel);
+	}
+	
+	public void addAeroplane(String aeroplaneModel) {
+		aeroplaneMap.get(aeroplaneModel);
+	}
+	public void removeAeroplane(String aeroplaneModel) {
+		aeroplaneMap.remove(aeroplaneModel);
+		
+	}
 	@Override
 	public String toString() {
-		return "Available Planes: " + flightMap;
+		return "Available Planes: " + aeroplaneMap;
 	}
-
-	//TODO: Remove/add
 	
 }
