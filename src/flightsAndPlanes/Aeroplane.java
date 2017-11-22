@@ -39,6 +39,4 @@ public class Aeroplane {
 		this.airplaneWorkingStatus = airplaneWorkingStatus;
 	}
 	
-
-
 }
