@@ -9,13 +9,13 @@ public class foodTest {
 	@Test
 	public void test() {
 		Menu m1=new Menu();
-		m1.printFirstFoodClassList();
-		System.out.println( m1.getPriceForFirstClassFoodItem(2));
-		
-		
-		m1.printEconomyFoodClassList();
-		System.out.println(m1.getPriceForEconomyClassFoodItem(3));
-	
+//		m1.printFoodList();
+//		System.out.println( m1.getPriceForFirstClassFoodItem(2));
+//		
+//		
+//		m1.printEconomyFoodClassList();
+//		System.out.println(m1.getPriceForEconomyClassFoodItem(3));
+//	
 	}
 
 }

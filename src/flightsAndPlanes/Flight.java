@@ -3,6 +3,8 @@ package flightsAndPlanes;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
+import reservation.ReservationType;
+
 public class Flight {
 	private static int flightNumber;
 	private int nrOfSeats = 10;
@@ -17,12 +19,14 @@ public class Flight {
 	private HashMap<Integer, Boolean> seats = new HashMap<Integer, Boolean>();
 	private double economyClassPrice = 5000.0;
 	private double firstClassPrice = 20_000.0;
+	private ReservationType flightType;
 
-	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
+	public Flight(ReservationType flightType, LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
 			LocalDateTime landingDateTime) {
 
 		flightNumber++;
+		this.flightType = flightType;
 		this.takeOffDateTime = takeOffDateTime;
 		this.takeOffTerminal = takeOffTerminal;
 		this.takeoffCountry = takeoffCountry;
@@ -34,14 +38,23 @@ public class Flight {
 			seats.put(i, false);
 		};
 		this.aeroplane = AeroplaneCatalog.getFirstAvailableAeroplane();
+		this.aeroplane.setAeroplaneAvailableStatus(false);
 
-	
 	}
-	//TODO availible seats
-	//TODO classtype enum shit to make seat good.
+
 	public Aeroplane getAeroplane() {
 		return aeroplane;
 	}
+
+	public ReservationType getFlightType() {
+		return flightType;
+	}
+
+
+	public void setFlightType(ReservationType flightType) {
+		this.flightType = flightType;
+	}
+
 
 	public LocalDateTime getTakeOffDateTime() {
 		return takeOffDateTime;
@@ -58,9 +71,27 @@ public class Flight {
 	public void setLandingDateTime(LocalDateTime landingDateTime) {
 		this.landingDateTime = landingDateTime;
 	}
-	public void printSeats() {
-		seats.forEach((seatNumber, booked) -> System.out.println("Key : " + seatNumber + " Value : " + booked));
+	public StringBuilder getSeatsToString() {
+		StringBuilder stringSeats = new StringBuilder();
+		seats.forEach((seatNumber, booked) -> {
+			if(seatNumber % 2 != 0) {
+				stringSeats.append("(" + seatNumber + ") |");
+				if(booked == false) stringSeats.append("O");
+				else if (booked == true)  stringSeats.append("X");
+
+			} else if(seatNumber % 2 == 0) {
+				if(booked == false) stringSeats.append("\tO");
+				else if (booked == true)  stringSeats.append("\tX");
+				stringSeats.append("|" + "(" + seatNumber + ")\n");
+			};
+		});
+		return stringSeats;
 	}
+
+	public void setSeatToBooked(int seatNumber) {
+		seats.put(seatNumber, true);
+	}
+
 	public HashMap<Integer, Boolean> getSeats() {
 		return seats;
 	}
@@ -90,11 +121,11 @@ public class Flight {
 	public int getFlightNumber() {
 		return flightNumber;
 	}
-	
+
 	public boolean isFlightAvailable() {
 		return flightAvailableStatus;
 	}
-	
+
 	public void setFlightAvailableStatus(boolean flightAvailableStatus) {
 		this.flightAvailableStatus = flightAvailableStatus;
 	}

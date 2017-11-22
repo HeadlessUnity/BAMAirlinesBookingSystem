@@ -11,6 +11,7 @@ import flightsAndPlanes.Aeroplane;
 import flightsAndPlanes.AeroplaneCatalog;
 import flightsAndPlanes.Flight;
 import flightsAndPlanes.FlightCatalog;
+import reservation.ReservationType;
 
 public class flightsAndPlaneTests {
 
@@ -80,11 +81,11 @@ public class flightsAndPlaneTests {
 				AeroplaneCatalog.addAeroplane(aeroplane);
 			};
 
-			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
+			Flight ukToSweden = new Flight(ReservationType.FIRST_CLASS, now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
-			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
+			Flight  swedenToUk = new Flight(ReservationType.FIRST_CLASS, now.plusDays(3), "Arlanda", "Sweden",
 					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
-			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
+			Flight ukToZanzibar = new Flight(ReservationType.FIRST_CLASS, later, "Heathrow", "United-Kingdom",
 					"1F", "Sweden", later.plusHours(9));
 		}
 
@@ -106,11 +107,11 @@ public class flightsAndPlaneTests {
 				AeroplaneCatalog.addAeroplane(aeroplane);
 			};
 
-			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
+			Flight ukToSweden = new Flight(ReservationType.FIRST_CLASS, now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
-			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
+			Flight  swedenToUk = new Flight(ReservationType.FIRST_CLASS, now.plusDays(3), "Arlanda", "Sweden",
 					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
-			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
+			Flight ukToZanzibar = new Flight(ReservationType.FIRST_CLASS, later, "Heathrow", "United-Kingdom",
 					"1F", "Sweden", later.plusHours(9));
 
 			List<Flight> flightList  = Arrays.asList(
@@ -133,11 +134,11 @@ public class flightsAndPlaneTests {
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
 
-			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
+			Flight ukToSweden = new Flight(ReservationType.FIRST_CLASS, now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
-			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
+			Flight  swedenToUk = new Flight(ReservationType.FIRST_CLASS, now.plusDays(3), "Arlanda", "Sweden",
 					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
-			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
+			Flight ukToZanzibar = new Flight(ReservationType.FIRST_CLASS, later, "Heathrow", "United-Kingdom",
 					"1F", "Sweden", later.plusHours(9));
 			
 			List<Flight> flightList  = Arrays.asList(
@@ -154,10 +155,32 @@ public class flightsAndPlaneTests {
 		}
 
 		@Test
-		public void printFlightInformationTest() {
+		public void printSeatsTest() {
 
-			FlightCatalog fC = new FlightCatalog();
-			System.out.println(fC);
+			LocalDateTime now = LocalDateTime.now();
+			LocalDateTime later = now.plusMonths(5);
+
+			Aeroplane first = new Aeroplane("AirBus380");
+			Aeroplane second = new Aeroplane("AirBus320");		
+			Aeroplane third = new Aeroplane("boeing747");	
+
+			Flight ukToSweden = new Flight(ReservationType.FIRST_CLASS, now, "Heathrow", "United-Kingdom",
+					"5D", "Sweden", now.plusHours(3));
+			Flight  swedenToUk = new Flight(ReservationType.FIRST_CLASS, now.plusDays(3), "Arlanda", "Sweden",
+					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
+			Flight ukToZanzibar = new Flight(ReservationType.FIRST_CLASS, later, "Heathrow", "United-Kingdom",
+					"1F", "Sweden", later.plusHours(9));
+			
+			List<Flight> flightList  = Arrays.asList(
+					ukToSweden, swedenToUk, ukToZanzibar);
+
+			for (Flight flight : flightList) {
+				FlightCatalog.addFlight(flight);
+			};
+			
+			for (Flight flight : flightList) {
+				System.out.println(FlightCatalog.getFlight(flight.getFlightNumber()).getSeatsToString());
+			};
 
 		}
 
