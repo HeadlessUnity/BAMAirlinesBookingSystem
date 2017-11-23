@@ -23,6 +23,7 @@ public class BookingGuiTextVersion {
 			} 
 			catch (Exception e) {
 				e.printStackTrace();
+
 			}
 			// Asks the user what it want to do
 			System.out.println("Where and when would you like to fly?");
@@ -67,7 +68,7 @@ public class BookingGuiTextVersion {
 					reservation.createFoodOrder(rT, foodIndex);
 				}
 			} while (foodIndex ==0);			
-		
+
 			System.out.println("Enter passenger details: ");
 			//String x = sc.nextLine();
 			System.out.println("Firstname: ");
@@ -76,11 +77,11 @@ public class BookingGuiTextVersion {
 			String lName = sc.nextLine();
 			System.out.println("PassPortId ");
 			int passPortId = sc.nextInt();
-			
+
 			reservation.createPassenger(fName, lName, passPortId);			
 
 			System.out.println();
-						
+
 			// This just exits the program
 			System.out.println("-- Exiting program --");
 			sc.close();

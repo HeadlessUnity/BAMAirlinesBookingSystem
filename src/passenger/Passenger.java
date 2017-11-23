@@ -9,13 +9,13 @@ public class Passenger {
 	 * passenger constructor with three parameters
 	 * @param firstName
 	 * @param lastName
-	 * @param passPortId
+	 * @param passPortId2
 	 */
-	public Passenger(String firstName, String lastName, int passPortId) {
+	public Passenger(String firstName, String lastName, int passPortId2) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.passPortId = passPortId;
+		this.passPortId = passPortId2;
 	}
 	
 	public String getFirstName() {
