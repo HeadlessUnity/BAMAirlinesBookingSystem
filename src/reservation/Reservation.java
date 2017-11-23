@@ -13,7 +13,6 @@ import passenger.PassengerList;
 public class Reservation {
 
 	private double totalPrice;
-	private double totalFoodPriceReservation;
 	List<Food> foodOrder=new ArrayList<Food>();
 	ReservationType reservationType = null;
 	private PassengerList p =new PassengerList();
@@ -68,6 +67,7 @@ public class Reservation {
 		totalPrice=totalPrice+totalFoodPriceReservation;
 	}
 	public void choiceResrvationType(int rservationType) {
+		double totalFoodPriceReservation;
 		if (rservationType==1) {
 			reservationType= ReservationType.FIRST_CLASS;
 			totalPrice=20000;

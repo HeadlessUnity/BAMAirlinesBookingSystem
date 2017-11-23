@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import food.Menu;
 import reservation.Reservation;
-import reservation.ReservationType;
 
 public class foodTest {
 

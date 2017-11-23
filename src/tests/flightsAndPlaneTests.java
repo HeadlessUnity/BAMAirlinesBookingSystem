@@ -11,7 +11,6 @@ import flightsAndPlanes.Aeroplane;
 import flightsAndPlanes.AeroplaneCatalog;
 import flightsAndPlanes.Flight;
 import flightsAndPlanes.FlightCatalog;
-import reservation.ReservationType;
 
 public class flightsAndPlaneTests {
 

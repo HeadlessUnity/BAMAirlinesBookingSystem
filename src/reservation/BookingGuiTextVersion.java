@@ -3,7 +3,6 @@ package reservation;
 import java.util.Scanner;
 import food.Menu;
 import reservation.Reservation;
-import reservation.ReservationType;
 public class BookingGuiTextVersion {
 
 	public static void main(String[] args) {
