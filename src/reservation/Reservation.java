@@ -26,11 +26,11 @@ public class Reservation {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-//	public void createFoodOrder(ReservationType rT,int foodIndex) {
-//		Menu m=new Menu();
-//		m.printFoodList(rT);
-//		reservationFoodPrice= m.getPriceForFoodItem(rT,foodIndex)+ reservationFoodPrice;
-//		}
+	public void createFoodOrder(ReservationType rT,int foodIndex) {
+		Menu m=new Menu();
+		m.printFoodList(rT);
+		reservationFoodPrice= m.getPriceForFoodItem(rT,foodIndex)+ reservationFoodPrice;
+		}
 	
 	
 	public Reservation() {}

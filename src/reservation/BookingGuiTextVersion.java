@@ -56,9 +56,9 @@ public class BookingGuiTextVersion {
 
 			System.out.println("What would you like to eat? (No food press: q)");
 
-			//			Menu m=new Menu();
-			//			m.printFoodList(rT);
-			//			sc.nextLine().toLowerCase().trim();
+						Menu m=new Menu();
+						m.printFoodList(rT);
+						sc.nextLine().toLowerCase().trim();
 			
 		
 			System.out.println("Enter passenger details: ");
@@ -70,12 +70,12 @@ public class BookingGuiTextVersion {
 			System.out.println("PassPortId ");
 			String passPortId = sc.nextLine();
 			
-			reservation.createPassenger(fName, lName, passPortId);
-			
+			reservation.createPassenger(fName, lName, passPortId);			
 
-			System.out.println(fName+lName+passPortId);
-			
 			System.out.println();
+			
+			
+	
 			
 			// This just exits the program
 			System.out.println("-- Exiting program --");
