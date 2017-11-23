@@ -23,5 +23,10 @@ public class Passenger {
 	public String getPassPortId() {
 		return passPortId;
 	}
+
+	@Override
+	public String toString() {
+		return "Passenger [firstName=" + firstName + ", lastName=" + lastName + ", passPortId=" + passPortId + "]";
+	}
 	
 }

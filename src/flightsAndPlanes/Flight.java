@@ -19,14 +19,12 @@ public class Flight {
 	private HashMap<Integer, Boolean> seats = new HashMap<Integer, Boolean>();
 	private double economyClassPrice = 5000.0;
 	private double firstClassPrice = 20_000.0;
-	private ReservationType flightType;
 
-	public Flight(ReservationType flightType, LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
+	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
 			LocalDateTime landingDateTime) {
 
 		flightNumber++;
-		this.flightType = flightType;
 		this.takeOffDateTime = takeOffDateTime;
 		this.takeOffTerminal = takeOffTerminal;
 		this.takeoffCountry = takeoffCountry;
@@ -45,16 +43,6 @@ public class Flight {
 	public Aeroplane getAeroplane() {
 		return aeroplane;
 	}
-
-	public ReservationType getFlightType() {
-		return flightType;
-	}
-
-
-	public void setFlightType(ReservationType flightType) {
-		this.flightType = flightType;
-	}
-
 
 	public LocalDateTime getTakeOffDateTime() {
 		return takeOffDateTime;
