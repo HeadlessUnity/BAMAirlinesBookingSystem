@@ -3,15 +3,21 @@ package passenger;
 public class Passenger {
 	private String firstName;
 	private String lastName;
-	private String passPortId;
-
-	public Passenger(String firstName, String lastName, String passPortId) {
+	private int passPortId;
+	
+	/**
+	 * passenger constructor with three parameters
+	 * @param firstName
+	 * @param lastName
+	 * @param passPortId
+	 */
+	public Passenger(String firstName, String lastName, int passPortId) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.passPortId = passPortId;
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -19,11 +25,12 @@ public class Passenger {
 	public String getLastName() {
 		return lastName;
 	}
-
-	public String getPassPortId() {
+	
+	public int getPassPortId() {
 		return passPortId;
 	}
 
+	// toString method witch takes an passenger object and returns a string
 	@Override
 	public String toString() {
 		return "Passenger [firstName=" + firstName + ", lastName=" + lastName + ", passPortId=" + passPortId + "]";
