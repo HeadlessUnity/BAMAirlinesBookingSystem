@@ -1,3 +1,4 @@
+
 package reservation;
 import java.util.Scanner;
 import food.Menu;
@@ -109,5 +110,3 @@ public class BookingGuiTextVersion {
 
 	}
 }
-
-

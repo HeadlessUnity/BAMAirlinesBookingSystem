@@ -1,3 +1,4 @@
+
 package reservation;
 
 import java.util.ArrayList;
@@ -17,18 +18,19 @@ public class Reservation {
 	ReservationType reservationType = null;
 	private PassengerList p =new PassengerList();
 
-
 	public void getBookedPassenger() {
 
 	}
 	public int getAvailableSeats(int seat) {
 		return seat;
 	}
+
 	public void createPassenger( String firstName, String lastName, int passPortId) {
 		Passenger passenger = new Passenger(firstName,lastName,passPortId);
 		p.addPassenger(passenger);
 		p.printPassengerList();
 	}
+
 	public  double getTotalPrice() {
 		return totalPrice;
 	}
@@ -52,12 +54,7 @@ public class Reservation {
 		return reservationType;
 	}
 
-
-
-
 	public Reservation() {
-
-
 
 	}
 	public void printFoodOrderPrice() {
@@ -78,9 +75,6 @@ public class Reservation {
 			reservationType=ReservationType.ECONOMY_CLASS;
 			totalPrice=5000;
 		}
-	}
-
-
-
+	}	
 }
 
