@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import Food.Menu;
+import food.Menu;
 import reservation.Reservation;
 import reservation.ReservationType;
 

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Food.Food;
-import Food.Menu;
+import food.Food;
+import food.Menu;
 import passenger.Passenger;
 import passenger.PassengerList;
 
