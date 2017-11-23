@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Food.Food;
-import Food.Menu;
+import food.Food;
+import food.Menu;
 import passenger.Passenger;
 import passenger.PassengerList;
 
@@ -23,10 +23,10 @@ public class Reservation {
 	public int getAvailableSeats(int seat) {
 		return seat;
 	}
-	public void createPassenger( String firstName, String lastName, String passPortId) {
+	public void createPassenger( String firstName, String lastName, int passPortId) {
 		Passenger passenger = new Passenger(firstName,lastName,passPortId);
 		p.addPassenger(passenger);
-		p.displayPassengerList();
+		p.printPassengerList();
 	}
 	public  double getTotalPrice() {
 		return totalPrice;

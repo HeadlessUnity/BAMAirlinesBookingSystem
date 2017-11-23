@@ -1,7 +1,7 @@
 package reservation;
 import java.util.Scanner;
 
-import Food.Menu;
+import food.Menu;
 
 public class BookingGuiTextVersion {
 
@@ -75,7 +75,7 @@ public class BookingGuiTextVersion {
 			System.out.println("Lastname: ");
 			String lName = sc.nextLine();
 			System.out.println("PassPortId ");
-			String passPortId = sc.nextLine();
+			int passPortId = sc.nextInt();
 			
 			reservation.createPassenger(fName, lName, passPortId);			
 
