@@ -54,30 +54,41 @@ public class foodTest {
 			//Reserve seat
 			//set first or economy status
 
-			System.out.println("What would you like to eat? (No food press: 0)");
-			Menu m=new Menu();
-			m.printFoodList(reservation.getReservationType());
-			int foodIndex = 0;
-			while (foodIndex == 0)
-			{
-				foodIndex=sc.nextInt();
-				if (foodIndex == 0) {
-					break;
+			System.out.println("Would you like to eat? yes/no");
+			String value=sc.next();
+			switch (value) {
+			case "yes":
+
+				Menu m=new Menu();
+				m.printFoodList(reservation.getReservationType());
+				int foodIndex = 0;
+				while (foodIndex == 0)
+				{
+					foodIndex=sc.nextInt();
+					if (foodIndex == 0) {
+						break;
+					}
+					reservation.createFoodOrder(reservation.getReservationType(), foodIndex);
+					System.out.println();
+
+					reservation.printFoodOrder();
+					System.out.println("Would you like more food?");
+
+					foodIndex = 0;
 				}
-				reservation.createFoodOrder(reservation.getReservationType(), foodIndex);
-				System.out.println();
+				System.out.println(" Food Price ");
+				reservation.printFoodOrderPrice();
+				System.out.println(" Total Price  ");
+				System.out.println( reservation.getTotalPrice());
 
-				reservation.printFoodOrder();
-				System.out.println("Would you like more food?");
+				break;
 
-				foodIndex = 0;
+			default:
+				System.out.println(" Total Price  ");
+				System.out.println( reservation.getTotalPrice());
+				break;
 			}
-			System.out.println(" Food Price ");
-			reservation.printFoodOrderPrice();
-			System.out.println(" Total Price  ");
-			System.out.println( reservation.getTotalPrice());
 		}
 
 	}
 }
-
