@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import food.Food;
-import food.Menu;
+import Food.Food;
+import Food.Menu;
 import passenger.Passenger;
 import passenger.PassengerList;
 
@@ -46,6 +46,7 @@ public class Reservation {
 			System.out.println(food);
 		}
 	}
+
 	
 	public Reservation() {
 		this.totalFoodPriceReservation =0;

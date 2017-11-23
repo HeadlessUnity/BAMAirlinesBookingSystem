@@ -20,7 +20,6 @@ public class PassengerList {
 		System.out.println(passengerList.toString());
 	}
 	
-
 	public PassengerList() {
 		passengerList = new ArrayList<Passenger>();
 			
