@@ -19,7 +19,7 @@ public class BookingGuiTextVersion {
 
 
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} 
 			catch (Exception e) {
 				e.printStackTrace();
@@ -27,6 +27,7 @@ public class BookingGuiTextVersion {
 			}
 			// Asks the user what it want to do
 			System.out.println("Where and when would you like to fly?");
+
 			Scanner sc = new Scanner(System.in);				
 			// Enter date and destination
 			String input = sc.nextLine().toLowerCase().trim();
@@ -34,77 +35,62 @@ public class BookingGuiTextVersion {
 			//TODO:Check available flights
 			//TODO Check available seats
 
+
 			//display result of search
 			System.out.println("destination" + "date of departure");				
 			System.out.println("Seats available in First and economy class available "+ "number of seats" );
 
 
+
 			System.out.println("First (press 1) or Economy Class(press 2)?");
-			
-			int i=sc.nextInt();
-			if (i==1) {
+
+			String i=sc.nextLine();
+			if (i.equals("1")) {
 				rT= ReservationType.FIRST_CLASS;
 			} else {
 				rT=ReservationType.ECONOMY_CLASS;
 			}
-			
-			
-			
+
+
+
 			//TODO: LOOP HERE?
 			//Reserve seat
 			//set first or economy status
 
-			System.out.println("What would you like to eat? (No food press: q)");
-			
+			System.out.println("What would you like to eat? (No food press: 0)");
 			Menu m=new Menu();
 			m.printFoodList(rT);
-			sc.nextLine().toLowerCase().trim();
+			int foodIndex;
+			do {
+				foodIndex=sc.nextInt();
+				if (foodIndex!=0) {
+					reservation.createFoodOrder(rT, foodIndex);
+				}
+			} while (foodIndex ==0);
+			
+		
+			System.out.println("Enter passenger details: ");
+			//String x = sc.nextLine();
+			System.out.println("Firstname: ");
+			String fName = sc.nextLine();
+			System.out.println("Lastname: ");
+			String lName = sc.nextLine();
+			System.out.println("PassPortId ");
+			String passPortId = sc.nextLine();
+			
+			reservation.createPassenger(fName, lName, passPortId);
 			
 
+			System.out.println(fName+lName+passPortId);
+			
+			System.out.println();
+			
+			// This just exits the program
+			System.out.println("-- Exiting program --");
+			sc.close();
+			running = false;
 
-
-			switch (input) {
-			case "":
-
-			case "help":
-				// This is just some help if the user don't know what to type
-				//System.out.println(helpMessage());
-				break;
-
-			case "exit":
-				// This just exits the program
-				System.out.println("-- Exiting program --");
-				sc.close();
-				running = false;
-				break;
-
-			default:
-				System.out.println(" -- Invalid command, type \"help\" for command list --\n");
-
-				break;
-			}
 		}
 	}
-	public String startHint() {
-		return " +-------------------------------------+\n" +
-				" | Type \"help\" to see the command list |\n" +
-				" |     Type \"exit\" to exit program     |\n" +
-				" +-------------------------------------+\n";
-	}
-
-	public String helpMessage() {
-		return "  -- This is the help section -- \n" + 
-				" +--------------------------------------+\n" + 
-				" |\t Command | Function\t\t|\n" +
-				" +--------------------------------------+\n" + 
-				" |\t-add\t   Add task\t\t|\n" +
-				" |\t-remove\t   Remove task\t\t|\n" +
-				" |\t-list\t   List all tasks\t|\n" +
-				" |\t-find\t   Find tasks\t\t|\n" +
-				" |\t-edit\t   Edit a task\t\t|\n" +
-				" |\t-exit\t   Exit program\t\t|\n" +
-				" +--------------------------------------+\n";
-	}
 }
-
 

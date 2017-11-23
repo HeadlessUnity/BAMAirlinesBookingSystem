@@ -76,5 +76,17 @@ public class Menu {
 		return 0;
 	}
 
+	public void addToFoodOrder(ReservationType rT, int foodIndex, List<Food> foodOrder) {
+		Food food = null;
+		if (rT == ReservationType.FIRST_CLASS) {
+			food=firstClass.get(foodIndex);
+			foodOrder.add(food);
+		}else if (rT== ReservationType.ECONOMY_CLASS){
+			food=economyClass.get(foodIndex);
+			foodOrder.add(food);
+		}
+		
+	}
+	
 
 }
