@@ -1,7 +1,5 @@
 package reservation;
 
-import java.math.BigDecimal;
-
 import food.Menu;
 
 public class Reservation {
