@@ -24,10 +24,10 @@ public class Reservation {
 	public int getAvailableSeats(int seat) {
 		return seat;
 	}
-	public void createPassenger( String firstName, String lastName, String passPortId) {
+	public void createPassenger( String firstName, String lastName, int passPortId) {
 		Passenger passenger = new Passenger(firstName,lastName,passPortId);
 		p.addPassenger(passenger);
-		p.displayPassengerList();
+		p.printPassengerList();
 	}
 	public  double getTotalPrice() {
 		return totalPrice;
@@ -47,15 +47,6 @@ public class Reservation {
 			System.out.println(food);
 		}
 	}
-	//	public void printFoodOrderPrice() {;
-	//	for (Iterator iterator = foodOrder.iterator(); iterator.hasNext();) {
-	//		Food food = (Food) iterator.next();
-	//		double i= food.getFoodPrice();
-	//		totalFoodPriceReservation=totalFoodPriceReservation+i;
-	//	}
-	//	System.out.println(totalFoodPriceReservation);
-	//	totalFoodPriceReservation=totalPrice;
-	//}
 
 	public ReservationType getReservationType() {
 		return reservationType;
@@ -92,3 +83,4 @@ public class Reservation {
 
 
 }
+

@@ -23,6 +23,7 @@ public class BookingGuiTextVersion {
 			} 
 			catch (Exception e) {
 				e.printStackTrace();
+
 			}
 			// Asks the user what it want to do
 			System.out.println("Where and when would you like to fly?");
@@ -56,6 +57,7 @@ public class BookingGuiTextVersion {
 			//Reserve seat
 			//set first or economy status
 
+
 			System.out.println("What would you like to eat? (No food press: 0)");
 			Menu m=new Menu();
 			m.printFoodList(rT);
@@ -65,8 +67,7 @@ public class BookingGuiTextVersion {
 				if (foodIndex!=0) {
 					reservation.createFoodOrder(rT, foodIndex);
 				}
-			} while (foodIndex ==0);
-			
+			} while (foodIndex ==0);			
 		
 			System.out.println("Enter passenger details: ");
 			//String x = sc.nextLine();
@@ -77,13 +78,10 @@ public class BookingGuiTextVersion {
 			System.out.println("PassPortId ");
 			String passPortId = sc.nextLine();
 			
-			reservation.createPassenger(fName, lName, passPortId);
-			
+			reservation.createPassenger(fName, lName, passPortId);			
 
-			System.out.println(fName+lName+passPortId);
-			
 			System.out.println();
-			
+						
 			// This just exits the program
 			System.out.println("-- Exiting program --");
 			sc.close();
