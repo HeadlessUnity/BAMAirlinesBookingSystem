@@ -36,8 +36,6 @@ public class foodTest {
 			// Enter date and destination
 			String input = sc.nextLine().toLowerCase().trim();
 
-			//TODO:Check available flights
-			//TODO Check available seats
 
 			//display result of search
 			System.out.println("destination" + "date of departure");				

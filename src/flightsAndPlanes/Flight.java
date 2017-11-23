@@ -3,8 +3,6 @@ package flightsAndPlanes;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
-import reservation.ReservationType;
-
 public class Flight {
 	private static int flightNumber;
 	private int nrOfSeats = 10;

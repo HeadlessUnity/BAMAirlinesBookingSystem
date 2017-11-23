@@ -134,6 +134,15 @@ public class flightsAndPlaneTests {
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
 
+
+			List<Aeroplane> aeroplaneList  = Arrays.asList(
+					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
+					new Aeroplane("boeing747"));
+
+			for (Aeroplane aeroplane : aeroplaneList) {
+				AeroplaneCatalog.addAeroplane(aeroplane);
+			};
+
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
 					"5D", "Sweden", now.plusHours(3));
 			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
