@@ -48,9 +48,11 @@ public class Menu {
 		}else if (rT== ReservationType.ECONOMY_CLASS){
 			list = economyClass;
 		}
+		System.out.println("Number       Dish           Price");
+		System.out.println("------       ----           -----");
 		for (Iterator<Food> it = list.iterator(); it.hasNext();) {
 			Food food = (Food) it.next();
-			System.out.println("["+c+"]    "+food.toString());
+			System.out.println("["+c+"]          "+ food.toString());
 			c++;
 		}
 
@@ -78,15 +80,17 @@ public class Menu {
 
 	public void addToFoodOrder(ReservationType rT, int foodIndex, List<Food> foodOrder) {
 		Food food = null;
+		int i=foodIndex-1;
 		if (rT == ReservationType.FIRST_CLASS) {
-			food=firstClass.get(foodIndex);
+			food=firstClass.get(i);
 			foodOrder.add(food);
 		}else if (rT== ReservationType.ECONOMY_CLASS){
-			food=economyClass.get(foodIndex);
+			food=economyClass.get(i);
 			foodOrder.add(food);
 		}
 		
 	}
+	
 	
 
 }

@@ -13,7 +13,7 @@ public class foodTest {
 	@Test
 	public void test() {
 
-		ReservationType rT = null;
+
 
 		boolean running = true;
 
@@ -46,13 +46,8 @@ public class foodTest {
 
 			System.out.println("First (press 1) or Economy Class(press 2)?");
 
-			int i=sc.nextInt();
-			if (i==1) {
-				rT= ReservationType.FIRST_CLASS;
-			} else {
-				rT=ReservationType.ECONOMY_CLASS;
-			}
-
+			int reservationType=sc.nextInt();
+			reservation.choiceResrvationType(reservationType);
 
 
 			//TODO: LOOP HERE?
@@ -61,7 +56,7 @@ public class foodTest {
 
 			System.out.println("What would you like to eat? (No food press: 0)");
 			Menu m=new Menu();
-			m.printFoodList(rT);
+			m.printFoodList(reservation.getReservationType());
 			int foodIndex = 0;
 			while (foodIndex == 0)
 			{
@@ -69,14 +64,18 @@ public class foodTest {
 				if (foodIndex == 0) {
 					break;
 				}
-				reservation.createFoodOrder(rT, foodIndex);
+				reservation.createFoodOrder(reservation.getReservationType(), foodIndex);
 				System.out.println();
 
 				reservation.printFoodOrder();
 				System.out.println("Would you like more food?");
-				
+
 				foodIndex = 0;
 			}
+			System.out.println(" Food Price ");
+			reservation.printFoodOrderPrice();
+			System.out.println(" Total Price  ");
+			System.out.println( reservation.getTotalPrice());
 		}
 
 	}

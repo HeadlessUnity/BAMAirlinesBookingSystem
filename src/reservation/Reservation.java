@@ -14,6 +14,7 @@ public class Reservation {
 	private double totalPrice;
 	private double totalFoodPriceReservation;
 	List<Food> foodOrder=new ArrayList<Food>();
+	ReservationType reservationType = null;
 	private PassengerList p =new PassengerList();
 
 
@@ -35,10 +36,10 @@ public class Reservation {
 		this.totalPrice = totalPrice;
 	}
 	public void createFoodOrder(ReservationType rT,int foodIndex) {
-		
+
 		Menu m=new Menu();
-		 m.addToFoodOrder(rT, foodIndex, foodOrder);
-		}
+		m.addToFoodOrder(rT, foodIndex, foodOrder);
+	}
 	public void printFoodOrder() {
 		Food food;
 		for (Iterator iterator = foodOrder.iterator(); iterator.hasNext();) {
@@ -46,12 +47,48 @@ public class Reservation {
 			System.out.println(food);
 		}
 	}
-	
+	//	public void printFoodOrderPrice() {;
+	//	for (Iterator iterator = foodOrder.iterator(); iterator.hasNext();) {
+	//		Food food = (Food) iterator.next();
+	//		double i= food.getFoodPrice();
+	//		totalFoodPriceReservation=totalFoodPriceReservation+i;
+	//	}
+	//	System.out.println(totalFoodPriceReservation);
+	//	totalFoodPriceReservation=totalPrice;
+	//}
+
+	public ReservationType getReservationType() {
+		return reservationType;
+	}
+
+
+
+
 	public Reservation() {
-		this.totalFoodPriceReservation =0;
+
+
+
+	}
+	public void printFoodOrderPrice() {
+		double totalFoodPriceReservation=0;
+		for (Iterator iterator = foodOrder.iterator(); iterator.hasNext();) {
+			Food food = (Food) iterator.next();
+			double i= food.getFoodPrice();
+			totalFoodPriceReservation=totalFoodPriceReservation+i;
+		}
+		System.out.println(totalFoodPriceReservation);
+		totalPrice=totalPrice+totalFoodPriceReservation;
+	}
+	public void choiceResrvationType(int rservationType) {
+		if (rservationType==1) {
+			reservationType= ReservationType.FIRST_CLASS;
+			totalPrice=20000;
+		} else {
+			reservationType=ReservationType.ECONOMY_CLASS;
+			totalPrice=5000;
+		}
 	}
 
 
 
 }
-
