@@ -1,6 +1,8 @@
 package reservation;
 import java.util.Scanner;
 
+import Food.Menu;
+
 public class BookingGuiTextVersion {
 
 	public static void main(String[] args) {
@@ -54,12 +56,17 @@ public class BookingGuiTextVersion {
 			//Reserve seat
 			//set first or economy status
 
-			System.out.println("What would you like to eat? (No food press: q)");
 
-						Menu m=new Menu();
-						m.printFoodList(rT);
-						sc.nextLine().toLowerCase().trim();
-			
+			System.out.println("What would you like to eat? (No food press: 0)");
+			Menu m=new Menu();
+			m.printFoodList(rT);
+			int foodIndex;
+			do {
+				foodIndex=sc.nextInt();
+				if (foodIndex!=0) {
+					reservation.createFoodOrder(rT, foodIndex);
+				}
+			} while (foodIndex ==0);			
 		
 			System.out.println("Enter passenger details: ");
 			//String x = sc.nextLine();
@@ -73,10 +80,7 @@ public class BookingGuiTextVersion {
 			reservation.createPassenger(fName, lName, passPortId);			
 
 			System.out.println();
-			
-			
-	
-			
+						
 			// This just exits the program
 			System.out.println("-- Exiting program --");
 			sc.close();
@@ -85,5 +89,4 @@ public class BookingGuiTextVersion {
 		}
 	}
 }
-
 
