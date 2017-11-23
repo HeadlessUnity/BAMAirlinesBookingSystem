@@ -4,36 +4,37 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.Map.Entry;
 
-public abstract class Catalog {
-	public static HashMap<Integer, Flight> map = new HashMap<Integer, Flight>();
+public  class Catalog<K, V> {
+	public HashMap<K, V> map = new HashMap<K, V>();
 	
 	
 
-	public HashMap<Integer, Flight> getflightCatalog() {
-		return flightMap;
+	public HashMap<K, V> getflightCatalog() {
+		return map;
 	}
-
-	public static Flight getFirstAvailableFlight() {
-	Optional<Entry<Integer, Flight>> optionalPlane = flightMap.entrySet().stream().filter(
-			(entrySet) -> entrySet.getValue().isFlightAvailable()).findFirst();
-	Entry<Integer, Flight> entry = optionalPlane.get();
+	public V getFirstAvailableObject() {
+	Optional<Entry<K, V>> optionalPlane = map.entrySet().stream().filter(
+			(entrySet) -> entrySet.getValue().isObjectAvailable()).findFirst();
+	Entry<K, V> entry = optionalPlane.get();
 	return entry.getValue();
 	}
-
-	public static Flight getFlight(int flightNumber) {
-		return flightMap.get(flightNumber);
+	
+	public V getObject(int VNumber) {
+		return map.get(VNumber);
 	}
 	
-	public static void addFlight(Flight flight) {
-		flightMap.put(flight.getFlightNumber(), flight);
+	public void addObject(V value) {
+		map.put(value.getNumber(), value);		
 	}
-	public static void removeFlight(int flightNumber) {
-		flightMap.remove(flightNumber);
+		
+	public void removeObject(int oNumber) {
+		map.remove(oNumber);
 		
 	}
+	
 	@Override
 	public String toString() {
-		return "Available Flights: " + flightMap;
+		return "AvailableOs: " + map;
 	}
 	
 }

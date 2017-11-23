@@ -14,7 +14,7 @@ public class Aeroplane {
 	}
 	
 
-	public static int getPlaneNumber() {
+	public int getNumber() {
 		return planeNumber;
 	}
 
@@ -26,7 +26,7 @@ public class Aeroplane {
 		return model;
 	}
 
-	public boolean isAeroplaneAvailable() {
+	public boolean isObjectAvailable() {
 		return aeroplaneAvailableStatus;
 	}
 	

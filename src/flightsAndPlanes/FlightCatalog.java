@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.Map.Entry;
 
-public class FlightCatalog {
-	public static HashMap<Integer, Flight> flightMap = new HashMap<Integer, Flight>();
+public class FlightCatalog extends Catalog{
+	public HashMap<Integer, Flight> flightMap = new HashMap<Integer, Flight>();
 	
 	
 
@@ -13,24 +13,13 @@ public class FlightCatalog {
 		return flightMap;
 	}
 
-	public static Flight getFirstAvailableFlight() {
+	public Flight getFirstAvailableFlight() {
 	Optional<Entry<Integer, Flight>> optionalPlane = flightMap.entrySet().stream().filter(
-			(entrySet) -> entrySet.getValue().isFlightAvailable()).findFirst();
+			(entrySet) -> entrySet.getValue().isObjectAvailable()).findFirst();
 	Entry<Integer, Flight> entry = optionalPlane.get();
 	return entry.getValue();
 	}
 
-	public static Flight getFlight(int flightNumber) {
-		return flightMap.get(flightNumber);
-	}
-	
-	public static void addFlight(Flight flight) {
-		flightMap.put(flight.getFlightNumber(), flight);
-	}
-	public static void removeFlight(int flightNumber) {
-		flightMap.remove(flightNumber);
-		
-	}
 	@Override
 	public String toString() {
 		return "Available Flights: " + flightMap;

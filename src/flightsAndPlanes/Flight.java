@@ -20,7 +20,7 @@ public class Flight {
 
 	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
-			LocalDateTime landingDateTime) {
+			LocalDateTime landingDateTime, Catalog aeroplaneCatalog) {
 
 		flightNumber++;
 		this.takeOffDateTime = takeOffDateTime;
@@ -33,7 +33,7 @@ public class Flight {
 		for(int i = 1; i <= nrOfSeats; i++) {
 			seats.put(i, false);
 		};
-		this.aeroplane = AeroplaneCatalog.getFirstAvailableAeroplane();
+		this.aeroplane = aeroplaneCatalog.getFirstAvailableObject();
 		this.aeroplane.setAeroplaneAvailableStatus(false);
 
 	}
@@ -104,11 +104,11 @@ public class Flight {
 	public String getLandingCountry() {
 		return landingCountry;
 	}
-	public int getFlightNumber() {
+	public int getNumber() {
 		return flightNumber;
 	}
 
-	public boolean isFlightAvailable() {
+	public boolean isObjectAvailable() {
 		return flightAvailableStatus;
 	}
 
