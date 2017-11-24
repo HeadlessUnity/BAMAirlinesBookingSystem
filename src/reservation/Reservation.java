@@ -71,7 +71,7 @@ public class Reservation {
 		if (rservationType==1) {
 			reservationType= ReservationType.FIRST_CLASS;
 			totalPrice=20000;
-		} else {
+		} else if (rservationType==2){
 			reservationType=ReservationType.ECONOMY_CLASS;
 			totalPrice=5000;
 		}
