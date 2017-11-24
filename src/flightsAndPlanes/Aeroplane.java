@@ -34,5 +34,14 @@ public class Aeroplane {
 	public void setAeroplaneAvailableStatus(boolean aeroplaneAvailableStatus) {
 		this.aeroplaneAvailableStatus = aeroplaneAvailableStatus;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Aeroplane [planeNumber=" + planeNumber + ", airline=" + airline + ", model=" + model
+				+ ", aeroplaneAvailableStatus=" + aeroplaneAvailableStatus + "]";
+	}
+	
+	
 	
 }

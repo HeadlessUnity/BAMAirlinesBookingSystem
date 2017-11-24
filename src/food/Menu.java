@@ -39,22 +39,25 @@ public class Menu {
 
 	}
 
-	public void printFoodList(ReservationType rT) {
+	public StringBuilder printFoodList(ReservationType rT) {
 		//      Creating method to print all the food for first class  
 		int c = 1;
 		List<Food> list = null;
+		StringBuilder stringList = new StringBuilder();
 		if (rT == ReservationType.FIRST_CLASS) {
 			list = firstClass;
 		}else if (rT== ReservationType.ECONOMY_CLASS){
 			list = economyClass;
 		}
-		System.out.println("Number       Dish           Price");
-		System.out.println("------       ----           -----");
+		stringList.append("Number       Dish           Price\n");
+		stringList.append("------       ----           -----\n");
 		for (Iterator<Food> it = list.iterator(); it.hasNext();) {
 			Food food = (Food) it.next();
-			System.out.println("["+c+"]          "+ food.toString());
+			stringList.append("["+c+"]          "+ food.toString() + "\n");
 			c++;
 		}
+		
+		return stringList;
 
 	}
 

@@ -30,14 +30,20 @@ public class PassengerList {
 	//method that create a arraylist of passengers
 	public PassengerList() {
 		passengerList = new ArrayList<Passenger>();
-			
+		/*	
 	passengerList.add(new Passenger("Miguel","De Cervante",1231));
 	passengerList.add(new Passenger("Jonathan", "Swift",1232));
 	passengerList.add(new Passenger("Jane", "Austen",1233));
 	passengerList.add(new Passenger("Mary", "Shelley",1234));
 	passengerList.add(new Passenger("Alexandre", "Dumas",1235));
 	passengerList.add(new Passenger("Charlotte", "Bronte",1236));
-			
+			*/
 	}
+	@Override
+	public String toString() {
+		return passengerList + "]";
+	}
+	
+	
 	
 }

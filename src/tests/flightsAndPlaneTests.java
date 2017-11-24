@@ -15,7 +15,7 @@ import flightsAndPlanes.FlightCatalog;
 public class flightsAndPlaneTests {
 	
 	AeroplaneCatalog aeroplaneCatalog =  new AeroplaneCatalog();
-	FlightCatalog flightCatalog =  new FlightCatalog();
+	FlightCatalog flightCatalog =  new FlightCatalog(aeroplaneCatalog);
 	@Before
 	public void setUp() throws Exception {
 

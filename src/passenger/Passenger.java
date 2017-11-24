@@ -25,7 +25,21 @@ public class Passenger {
 	public String getLastName() {
 		return lastName;
 	}
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Passenger other = (Passenger) obj;
+		if (passPortId != other.passPortId)
+			return false;
+		return true;
+	}
+
 	public int getPassPortId() {
 		return passPortId;
 	}

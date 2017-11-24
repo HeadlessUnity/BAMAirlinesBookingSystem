@@ -3,8 +3,11 @@ package flightsAndPlanes;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
+import reservation.ReservationType;
+
 public class Flight {
-	private static int flightNumber;
+	private static int counter;
+	private int flightNumber;
 	private int nrOfSeats = 10;
 	private LocalDateTime takeOffDateTime;
 	private String takeOffTerminal;
@@ -17,12 +20,13 @@ public class Flight {
 	private HashMap<Integer, Boolean> seats = new HashMap<Integer, Boolean>();
 	private double economyClassPrice = 5000.0;
 	private double firstClassPrice = 20_000.0;
+	private ReservationType reservationType;
 
 	public Flight(LocalDateTime takeOffDateTime, String takeOffTerminal, String takeoffCountry,
 			String takeOffGate, String landingCountry,
 			LocalDateTime landingDateTime, AeroplaneCatalog aeroplaneCatalog) {
 
-		flightNumber++;
+		flightNumber = ++counter;
 		this.takeOffDateTime = takeOffDateTime;
 		this.takeOffTerminal = takeOffTerminal;
 		this.takeoffCountry = takeoffCountry;
@@ -57,6 +61,20 @@ public class Flight {
 	public void setLandingDateTime(LocalDateTime landingDateTime) {
 		this.landingDateTime = landingDateTime;
 	}
+
+	
+	public ReservationType getReservationType() {
+		return reservationType;
+	}
+
+	public void setReservationType(int reservationInt) {
+		if(reservationInt == 1) {
+		this.reservationType = ReservationType.FIRST_CLASS;
+		}else if(reservationInt == 2) {
+			this.reservationType = ReservationType.ECONOMY_CLASS;
+		}
+	}
+
 	public StringBuilder getSeatsToString() {
 		StringBuilder stringSeats = new StringBuilder();
 		seats.forEach((seatNumber, booked) -> {
@@ -68,12 +86,28 @@ public class Flight {
 			} else if(seatNumber % 2 == 0) {
 				if(booked == false) stringSeats.append("\tO");
 				else if (booked == true)  stringSeats.append("\tX");
+				stringSeats.append("| " + "(" + seatNumber + ")\n");
+			};
+			/*
+			if (reservationType == ReservationType.ECONOMY_CLASS && seatNumber <= 5) {
+				stringSeats.append("(" + seatNumber + ") |");
+				if(booked == false) stringSeats.append("--");
+				else if (booked == true)  stringSeats.append("X");
+
+			} else if(reservationType == ReservationType.FIRST_CLASS && seatNumber >= 5) {
+				if(booked == false) stringSeats.append("\t--");
+				else if (booked == true)  stringSeats.append("\tX");
 				stringSeats.append("|" + "(" + seatNumber + ")\n");
 			};
+			*/
 		});
 		return stringSeats;
 	}
+	
+	public int countNrOfSeats() {
+		return seats.size();
 
+	}
 	public void setSeatToBooked(int seatNumber) {
 		seats.put(seatNumber, true);
 	}
@@ -115,4 +149,12 @@ public class Flight {
 	public void setFlightAvailableStatus(boolean flightAvailableStatus) {
 		this.flightAvailableStatus = flightAvailableStatus;
 	}
+
+	@Override
+	public String toString() {
+		return "takeOffDateTime="
+				+ takeOffDateTime + " takeoffCountry=" + takeoffCountry
+				+ "landingCountry=" + landingCountry + "\n";
+	}
+	
 }
