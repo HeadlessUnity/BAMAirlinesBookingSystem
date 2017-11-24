@@ -1,14 +1,15 @@
 package flightsAndPlanes;
 
 public class Aeroplane {
-	private static int planeNumber;
+	private static int counter;
+	private int planeNumber;
 	private String airline;
 	private String model;
 	private boolean  aeroplaneAvailableStatus;
 	
 	
 	public Aeroplane(String model) {
-		planeNumber++;
+		planeNumber = ++counter;
 		this.model = model;
 		this.aeroplaneAvailableStatus = true;
 	}

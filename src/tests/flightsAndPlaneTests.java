@@ -9,19 +9,18 @@ import org.junit.Test;
 
 import flightsAndPlanes.Aeroplane;
 import flightsAndPlanes.AeroplaneCatalog;
-import flightsAndPlanes.Catalog;
 import flightsAndPlanes.Flight;
 import flightsAndPlanes.FlightCatalog;
 
 public class flightsAndPlaneTests {
 	
-	Catalog<Integer , Flight> flightCatalog =  new Catalog<Integer , Flight>();
-	Catalog<Integer , Aeroplane> AeroplaneCatalog =  new Catalog<Integer , Aeroplane>();
+	AeroplaneCatalog aeroplaneCatalog =  new AeroplaneCatalog();
+	FlightCatalog flightCatalog =  new FlightCatalog();
 	@Before
 	public void setUp() throws Exception {
 
 	}
-
+/*
 	@Test
 	public void createPlanesTest() {
 
@@ -38,7 +37,7 @@ public class flightsAndPlaneTests {
 			new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
 			new Aeroplane("boeing747"));
 			for (Aeroplane aeroplane : aeroplaneList) {
-				AeroplaneCatalog.addObject(aeroplane);
+				aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
 			};
 
 
@@ -52,10 +51,10 @@ public class flightsAndPlaneTests {
 					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
 					new Aeroplane("boeing747"));
 					for (Aeroplane aeroplane : aeroplaneList) {
-						AeroplaneCatalog.addObject(aeroplane);
+						aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
 					};
 					for (Aeroplane aeroplane : aeroplaneList) {
-						AeroplaneCatalog.removeObject(aeroplane.getPlaneNumber());
+						aeroplaneCatalog.removeObject(aeroplane.getNumber());
 					};
 
 
@@ -70,25 +69,21 @@ public class flightsAndPlaneTests {
 		public void createFlightsTest() {
 			LocalDateTime now = LocalDateTime.now();
 			LocalDateTime later = now.plusMonths(5);
-
-			Aeroplane first = new Aeroplane("AirBus380");
-			Aeroplane second = new Aeroplane("AirBus320");		
-			Aeroplane third = new Aeroplane("boeing747");	
-
+			
 			List<Aeroplane> aeroplaneList  = Arrays.asList(
 					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
 					new Aeroplane("boeing747"));			
 			
 			for (Aeroplane aeroplane : aeroplaneList) {
-				AeroplaneCatalog.addObject(aeroplane);
+				aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
 			};
 
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
-					"5D", "Sweden", now.plusHours(3));
+					"5D", "Sweden", now.plusHours(3), aeroplaneCatalog);
 			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
-					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
+					"12D", "United-Kingdom", now.plusDays(3).plusHours(3), aeroplaneCatalog);
 			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
-					"1F", "Sweden", later.plusHours(9));
+					"1F", "Sweden", later.plusHours(9), aeroplaneCatalog);
 		}
 
 		@Test
@@ -96,36 +91,32 @@ public class flightsAndPlaneTests {
 			LocalDateTime now = LocalDateTime.now();
 			LocalDateTime later = now.plusMonths(5);
 
-			Aeroplane first = new Aeroplane("AirBus380");
-			Aeroplane second = new Aeroplane("AirBus320");		
-			Aeroplane third = new Aeroplane("boeing747");	
-
 
 			List<Aeroplane> aeroplaneList  = Arrays.asList(
 					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
 					new Aeroplane("boeing747"));			
 			
 			for (Aeroplane aeroplane : aeroplaneList) {
-				AeroplaneCatalog.addObject(aeroplane);
+				aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
 			};
 
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
-					"5D", "Sweden", now.plusHours(3));
+					"5D", "Sweden", now.plusHours(3), aeroplaneCatalog);
 			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
-					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
+					"12D", "United-Kingdom", now.plusDays(3).plusHours(3), aeroplaneCatalog);
 			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
-					"1F", "Sweden", later.plusHours(9));
+					"1F", "Sweden", later.plusHours(9), aeroplaneCatalog);
 
 			List<Flight> flightList  = Arrays.asList(
 					ukToSweden, swedenToUk, ukToZanzibar);
 			
 			for (Flight flight : flightList) {
-				FlightCatalog.addObject(flight);
+				flightCatalog.addObject(flight.getNumber(), flight);
 			};
 
 
 		}
-
+*/
 		@Test
 		public void removeObjectsFromCatalogTest() {
 
@@ -135,32 +126,30 @@ public class flightsAndPlaneTests {
 			Aeroplane first = new Aeroplane("AirBus380");
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
-
-
+			
 			List<Aeroplane> aeroplaneList  = Arrays.asList(
-					new Aeroplane("AirBus380"), new Aeroplane("AirBus320"),
-					new Aeroplane("boeing747"));
+					first, second, third);
 
 			for (Aeroplane aeroplane : aeroplaneList) {
-				AeroplaneCatalog.addObject(aeroplane);
+				aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
 			};
-
+			System.out.println(aeroplaneCatalog);
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
-					"5D", "Sweden", now.plusHours(3));
+					"5D", "Sweden", now.plusHours(3), aeroplaneCatalog);
 			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
-					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
+					"12D", "United-Kingdom", now.plusDays(3).plusHours(3), aeroplaneCatalog);
 			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
-					"1F", "Sweden", later.plusHours(9));
+					"1F", "Sweden", later.plusHours(9), aeroplaneCatalog);
 			
 			List<Flight> flightList  = Arrays.asList(
 					ukToSweden, swedenToUk, ukToZanzibar);
 			
 			for (Flight flight : flightList) {
-				FlightCatalog.addObject(flight);
+				flightCatalog.addObject(flight.getNumber(), flight);
 			};
 
 			for (Flight flight : flightList) {
-				FlightCatalog.removeObject(flight.getFlightNumber());
+				flightCatalog.removeObject(flight.getNumber());
 			};
 
 		}
@@ -174,23 +163,30 @@ public class flightsAndPlaneTests {
 			Aeroplane first = new Aeroplane("AirBus380");
 			Aeroplane second = new Aeroplane("AirBus320");		
 			Aeroplane third = new Aeroplane("boeing747");	
+			
+			List<Aeroplane> aeroplaneList  = Arrays.asList(
+					first, second, third);
+
+			for (Aeroplane aeroplane : aeroplaneList) {
+				aeroplaneCatalog.addObject(aeroplane.getNumber(), aeroplane);
+			};
 
 			Flight ukToSweden = new Flight(now, "Heathrow", "United-Kingdom",
-					"5D", "Sweden", now.plusHours(3));
+					"5D", "Sweden", now.plusHours(3), aeroplaneCatalog);
 			Flight  swedenToUk = new Flight(now.plusDays(3), "Arlanda", "Sweden",
-					"12D", "United-Kingdom", now.plusDays(3).plusHours(3));
+					"12D", "United-Kingdom", now.plusDays(3).plusHours(3), aeroplaneCatalog);
 			Flight ukToZanzibar = new Flight(later, "Heathrow", "United-Kingdom",
-					"1F", "Sweden", later.plusHours(9));
+					"1F", "Sweden", later.plusHours(9), aeroplaneCatalog);
 			
 			List<Flight> flightList  = Arrays.asList(
 					ukToSweden, swedenToUk, ukToZanzibar);
 
 			for (Flight flight : flightList) {
-				FlightCatalog.addObject(flight);
+				flightCatalog.addObject(flight.getNumber(), flight);
 			};
 			
 			for (Flight flight : flightList) {
-				System.out.println(FlightCatalog.getObject(flight.getFlightNumber()).getSeatsToString());
+				System.out.println(flightCatalog.getObject(flight.getNumber()).getSeatsToString());
 			};
 
 		}
