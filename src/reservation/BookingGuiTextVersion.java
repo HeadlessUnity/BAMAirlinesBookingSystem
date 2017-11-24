@@ -1,6 +1,5 @@
 
 package reservation;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import food.Menu;
 import reservation.Reservation;
@@ -28,7 +27,7 @@ public class BookingGuiTextVersion {
 			// Asks the user what it want to do
 			System.out.println("Where and when would you like to fly?");
 
-
+							
 			// Enter date and destination
 			String input = sc.nextLine().toLowerCase().trim();
 
@@ -42,113 +41,71 @@ public class BookingGuiTextVersion {
 
 
 
+			System.out.println("First (press 1) or Economy Class(press 2)?");
 
-			boolean testValue =true;
-			while(testValue) {
-				System.out.println("First (press 1) or Economy Class(press 2)?");
-				int reservationType = 0;
-				try {
-				String  s =sc.next();
-				reservationType = Integer.parseInt(s);
-				if (reservationType==1 ||reservationType == 2) {
-					reservation.choiceResrvationType(reservationType);
-					testValue=false;
-				} 
-				
-				}
-				
-				catch(NumberFormatException ime) {
-					testValue = true;
-				}
-
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-
-				}
-			
-
+			int reservationType=sc.nextInt();
+			reservation.choiceResrvationType(reservationType);
 
 
 			//TODO: LOOP HERE?
 			//Reserve seat
 			//set first or economy status
 
-			//System.out.println("Would you like to eat? yes/no");
-			boolean runAgain =false;
-			do { System.out.println("Would you like to eat? yes/no");
-			try {
+			System.out.println("Would you like to eat? yes/no");
+			String value=sc.next();
+			switch (value) {
+			case "yes":
 
-				String value=sc.next().toLowerCase().trim();
-
-				switch (value) {
-				case "yes":
-
-					Menu m=new Menu();
-					m.printFoodList(reservation.getReservationType());
-					int foodIndex = 0;
-					while (foodIndex == 0)
-					{
-						foodIndex=sc.nextInt();
-						if (foodIndex == 0) {
-							break;
-						}
-						reservation.createFoodOrder(reservation.getReservationType(), foodIndex);
-						System.out.println();
-
-						reservation.printFoodOrder();
-						System.out.println("Would you like more food? ");
-
-						foodIndex = 0;
+				Menu m=new Menu();
+				m.printFoodList(reservation.getReservationType());
+				int foodIndex = 0;
+				while (foodIndex == 0)
+				{
+					foodIndex=sc.nextInt();
+					if (foodIndex == 0) {
+						break;
 					}
-					System.out.println(" Food Price ");
-					reservation.printFoodOrderPrice();
-					System.out.println(" Total Price  ");
-					System.out.println( reservation.getTotalPrice());
+					reservation.createFoodOrder(reservation.getReservationType(), foodIndex);
+					System.out.println();
 
-					break;
-				case "no":
-					System.out.println(" Total Price  ");
-					System.out.println( reservation.getTotalPrice());
-					runAgain= false;
-					break;
+					reservation.printFoodOrder();
+					System.out.println("Would you like more food?");
 
-				default: 
-					runAgain =true;
-					throw new Exception("WRONG!!!");
-
+					foodIndex = 0;
 				}
-			} catch (Exception e) {
-				//e.printStackTrace();
-				System.out.println("ERROR: FUCKER, You entered an illegal command.");
+				System.out.println(" Food Price ");
+				reservation.printFoodOrderPrice();
+				System.out.println(" Total Price  ");
+				System.out.println( reservation.getTotalPrice());
 
+				break;
 
+			default:
+				System.out.println(" Total Price  ");
+				System.out.println( reservation.getTotalPrice());
+				break;
 			}
-			}while (runAgain);
-
-
-
-
-
-			System.out.println("Enter passenger details: ");
-				String x = sc.nextLine();
-			System.out.println("Firstname: ");
-			String fName = sc.nextLine();
-			System.out.println("Lastname: ");
-			String lName = sc.nextLine();
-			System.out.println("PassPortId ");
-			int passPortId = sc.nextInt();
-
-			reservation.createPassenger(fName, lName, passPortId);			
-
-			System.out.println();
-
-			// This just exits the program
-			System.out.println("-- Exiting program --");
-			sc.close();
-			running = false;
-
 		}
-	}}
 
+
+
+		System.out.println("Enter passenger details: ");
+		//String x = sc.nextLine();
+		System.out.println("Firstname: ");
+		String fName = sc.nextLine();
+		System.out.println("Lastname: ");
+		String lName = sc.nextLine();
+		System.out.println("PassPortId ");
+		int passPortId = sc.nextInt();
+
+		reservation.createPassenger(fName, lName, passPortId);			
+
+		System.out.println();
+
+		// This just exits the program
+		System.out.println("-- Exiting program --");
+		sc.close();
+		running = false;
+
+	}
+}
