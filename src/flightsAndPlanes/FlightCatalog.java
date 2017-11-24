@@ -1,5 +1,4 @@
 package flightsAndPlanes;
-
 import java.util.Map;
 
 public class FlightCatalog extends Catalog<Integer, Flight>{
@@ -19,6 +18,7 @@ public class FlightCatalog extends Catalog<Integer, Flight>{
 	@Override
 	public String toString() {
 		return "Available Flights: " + map;
+
 	}
 	
 }

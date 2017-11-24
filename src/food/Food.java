@@ -14,7 +14,7 @@ public class Food {
 
 	@Override
 	public String toString() {
-		return "Food [foodName=" + foodName + ", foodPrice=" + foodPrice + "]";
+		return foodName +"     " +foodPrice;
 	}
 	
 	public double getFoodPrice() {
